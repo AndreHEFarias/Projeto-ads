@@ -44,7 +44,7 @@ if(!empty($_SESSION['id'])){
 	
 	tr:hover{
 		color:#008000;
-		transform: scale(1.1);
+		transform: scale(1.03);
 	}
 	
 	a,a:active,a:hover{
@@ -164,6 +164,11 @@ if(!empty($_SESSION['id'])){
 		color: blue;
 		text-decoration: #008000;
 	}
+	.sep2{
+		background-color: #7FFFD4	;
+		width: 100%;
+		height: 1px;
+	}
 	/*.cab1{
 		position: absolute;
 		top: 0%;
@@ -245,18 +250,20 @@ if(!empty($_SESSION['id'])){
 			<h3>2 Vacinas pendentes.</h3><br/>
 			
 		</div>
+		<div class="sep2"></div>
 	
 	<p><h2>Calendario de vacinas:</h2>
 	<h3>Dia 15 de junho de 2021<br>(Terça-feira)</h3>
-	<h3>Dia 18 de junho de 2021<br>(Sexta-feira)</h3><br/>
+	<h3>Dia 18 de junho de 2021<br>(Sexta-feira)</h3><br>
+	<div class="sep2"></div><br/>
 	<a href="vacina.php"><button id="button-suc" style="text-decoration:none" class="button3" >Adicionar nova vacina</button></a>
 	<button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button>
 	<a href="postos.php"><button id="button-suc" style="text-decoration:none" class="button1" >Postos de vacinação</button></a>
-	<!-- <input type="date"  class="data" value="<?php echo date('Y-m-d');?>"/> -->
+	<!--  -->
 
 	
 	</div>
-	</div>
+	</div>j
 	<footer class="footer">
 	<br><br>Copyright ©2021 Cartilha de Vacinação Online
 	</footer>

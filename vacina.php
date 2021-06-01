@@ -44,7 +44,7 @@ if(!empty($_SESSION['id'])){
 	
 	tr:hover{
 		color:#008000;
-		transform: scale(1.1);
+		transform: scale(1.03);
 	}
 	
 	a,a:active,a:hover{
@@ -127,10 +127,10 @@ if(!empty($_SESSION['id'])){
 	}
 	.data{
 		position: absolute;
-		top: 80%;
-		right: 10%;
+		top: 45%;
+		left: 5%;
 		font-size: 20px;
-		height: 100px;
+		height: 90px;
 		width: 200px;
 		border-radius: 10px;
 	}
@@ -147,6 +147,11 @@ if(!empty($_SESSION['id'])){
 	.sep{
 		background-color: black;
 		width: 80%;
+		height: 1px;
+	}
+	.sep2{
+		background-color: #7FFFD4	;
+		width: 100%;
 		height: 1px;
 	}
 	.footer {
@@ -172,6 +177,25 @@ if(!empty($_SESSION['id'])){
         width: 50px;
         transform: rotate(180deg)
     }
+	.qvac{
+		position: absolute;
+		top: 45%;
+		right: 5%;
+
+	}
+	.agvac{
+		color: whitesmoke;
+		font-size: 20px;
+		position: absolute;
+		right: 40%;
+		top:65%;
+		background-color: #32CD32;
+		height: 10%;
+		width: 20%;
+		border-radius: 10px;
+	}.agvac:hover{
+		background-color:#00FF00 ;
+	}
 	/*.cab1{
 		position: absolute;
 		top: 0%;
@@ -257,16 +281,28 @@ if(!empty($_SESSION['id'])){
 			<?php
 			echo"<p><h2> Olá ".$_SESSION['nome'].", verifique suas vacinas pendentes:</h2> ";
 			?>
-			<h3>2 Vacinas pendentes.</h3><br/>
-			
-		</div>
+			<h3>2 Vacinas pendentes.</h3>
+
+		</div><br>
+		<div class="sep2"></div>
 	
 	<p><h2>Calendario de vacinas:</h2>
 	<h3>Dia 15 de junho de 2021<br>(Terça-feira)</h3>
-	<h3>Dia 18 de junho de 2021<br>(Sexta-feira)</h3><br/>
+	<h3>Dia 18 de junho de 2021<br>(Sexta-feira)</h3>
+	<div class="sep2"></div><br/>
+		<form>
+	<div class="data"><h3 style="text-align: left;">Selecione a data:</h3>
+	<input style="height:60px ; width:250px;" type="date" value="<?php echo date('Y-m-d');?>"/></div>
+
+	<div class="qvac" style="text-align: left;"><h3>Digite qual é a vacina:</h3><input type="text" style="height:60px ; width:400px; font-size:medium" placeholder="Exemplo: covid-19"></div>
+	
+	<input type="submit"  value="Agendar vacina" class="agvac">
+	</form>
+	<br/><br><br><br><div class="sep2"></div><br>
+	
 	<button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button>
 	<a href="postos.php"><button id="button-suc" style="text-decoration:none" class="button1" >Postos de vacinação</button></a>
-	<!-- <input type="date"  class="data" value="<?php echo date('Y-m-d');?>"/> -->
+	<br>
 
 
 	</div>

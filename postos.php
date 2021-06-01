@@ -44,7 +44,7 @@ if(!empty($_SESSION['id'])){
 	
 	tr:hover{
 		color:#008000;
-		transform: scale(1.1);
+		transform: scale(1.03);
 	}
 	
 	a,a:active,a:hover{
