@@ -13,7 +13,7 @@ if(!empty($_SESSION['id'])){
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Home</title>
+		<title>Adicionar Vacina</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/signin.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -164,6 +164,14 @@ if(!empty($_SESSION['id'])){
 		color: blue;
 		text-decoration: #008000;
 	}
+    .seta{
+        position: absolute;
+        left: 3%;
+        top: 4%;
+        height: 50px;
+        width: 50px;
+        transform: rotate(180deg)
+    }
 	/*.cab1{
 		position: absolute;
 		top: 0%;
@@ -174,6 +182,12 @@ if(!empty($_SESSION['id'])){
 	}*/
 
 	</style>
+    
+        <script>
+        function goBack() {
+        window.history.back()
+        }
+        </script>
 	</head>
 <body >
 
@@ -238,6 +252,7 @@ if(!empty($_SESSION['id'])){
 	<a href="https://g1.globo.com/ciencia-e-saude/" class="noticias"><h4>Mais noticias>>></h4></a>
 	</div>
 	<div class="center">
+    <img src="img/seta.png" class="seta" onclick="goBack()">
 		<div class="session">
 			<?php
 			echo"<p><h2> Olá ".$_SESSION['nome'].", verifique suas vacinas pendentes:</h2> ";
@@ -249,14 +264,13 @@ if(!empty($_SESSION['id'])){
 	<p><h2>Calendario de vacinas:</h2>
 	<h3>Dia 15 de junho de 2021<br>(Terça-feira)</h3>
 	<h3>Dia 18 de junho de 2021<br>(Sexta-feira)</h3><br/>
-	<a href="vacina.php"><button id="button-suc" style="text-decoration:none" class="button3" >Adicionar nova vacina</button></a>
 	<button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button>
 	<a href="postos.php"><button id="button-suc" style="text-decoration:none" class="button1" >Postos de vacinação</button></a>
 	<!-- <input type="date"  class="data" value="<?php echo date('Y-m-d');?>"/> -->
 
-	
+
 	</div>
-	</div>
+    </div>
 	<footer class="footer">
 	<br><br>Copyright ©2021 Cartilha de Vacinação Online
 	</footer>
