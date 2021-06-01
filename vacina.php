@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if(!empty($_SESSION['id'])){
 	//echo "Olá ".$_SESSION['nome'].", seja bem vindo ";
@@ -6,6 +7,11 @@ if(!empty($_SESSION['id'])){
 	$_SESSION['msg'] = "<div class='alert alert-danger'>Área restrita!</div>";
 	header("Location: login.php");	
 }
+
+include_once("conexao.php");
+$consulta="SELECT * FROM vacinas limit 2";
+$con= $conn->query($consulta);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,7 +48,7 @@ if(!empty($_SESSION['id'])){
   	border-radius: 10px;
 	}
 	
-	tr:hover{
+	.tr1:hover{
 		color:#008000;
 		transform: scale(1.03);
 	}
@@ -127,7 +133,7 @@ if(!empty($_SESSION['id'])){
 	}
 	.data{
 		position: absolute;
-		top: 45%;
+		top: 50%;
 		left: 5%;
 		font-size: 20px;
 		height: 90px;
@@ -179,7 +185,7 @@ if(!empty($_SESSION['id'])){
     }
 	.qvac{
 		position: absolute;
-		top: 45%;
+		top: 50%;
 		right: 5%;
 
 	}
@@ -188,13 +194,20 @@ if(!empty($_SESSION['id'])){
 		font-size: 20px;
 		position: absolute;
 		right: 40%;
-		top:65%;
+		top:75%;
 		background-color: #32CD32;
 		height: 10%;
 		width: 20%;
 		border-radius: 10px;
 	}.agvac:hover{
 		background-color:#00FF00 ;
+	}
+	.tabbd{
+		text-decoration: none;
+		color: black;
+		font-size: 20px;
+		border: 1px black;
+
 	}
 	/*.cab1{
 		position: absolute;
@@ -247,25 +260,25 @@ if(!empty($_SESSION['id'])){
 
 		
 	<table>
-		<tr>
+		<tr class="tr1">
 			<td><a href="https://noticias.r7.com/saude/ministerio-da-saude-antecipa-vacina-para-profissionais-da-educacao-28052021"><h3>Ministério da Saúde antecipa vacina para profissionais da educação</h3>
 		<h5>Em nota, a pasta também informou que vai retomar a vacinação da população por idade, 
 		em ordem decrescente de 18 e 59 anos<br><div class="sep"></div></h5><p></a></td>
 		</tr><!-- link:  -->
 		
-		<tr>
+		<tr class="tr1">
 		<td><a href="https://www.uol.com.br/vivabem/noticias/bbc/2021/05/28/vacinas-contra-covid-criancas-deveriam-ou-nao-ser-imunizadas.htm"><h3>Vacinas contra covid: crianças deveriam ou não ser imunizadas?</h3>
 		<h5>A decisão sobre a imunização infantil deve responder a questões científicas, 
 		mas também éticas<br><div class="sep"></div></h5><p></a></td>
 		</tr><!--  -->
 		
-		<tr>
+		<tr class="tr1">
 		<td><a href="https://noticias.uol.com.br/saude/ultimas-noticias/redacao/2021/05/28/covid-19-coronavirus-casos-mortes-28-de-maio.htm"><h3>Covid: Com 2.418 novas mortes no Brasil, média volta a ficar acima de 1.800</h3>
 		<h5>O Brasil registrou 2.418 mortes de covid-19 nas últimas 24 horas e está próximo de atingir
 		 as 460 mil vidas perdidas em toda a pandemia<br><div class="sep"></div></h5></a><p></td>
 		</tr><!--  -->
 
-		<tr>
+		<tr class="tr1">
 		<td><a href="https://g1.globo.com/bemestar/coronavirus/noticia/2021/05/28/covid-19-fungo-negro-encontrado-na-india-existe-no-brasil-mas-nosso-corpo-costuma-ser-forte-contra-ele.ghtml"><h3>Covid-19: 'fungo negro' encontrado na Índia existe no Brasil, mas nosso corpo costuma ser forte contra ele</h3>
 		<h5>As primeiras notícias sobre casos de ‘fungo negro’ no país Asiático deixaram todo mundo assustado. Mas especialistas 
 		entendem que probabilidade de o cenário se repetir no nosso país é muito baixa<br><div class="sep"></div></h5><p></a></td>
@@ -287,14 +300,24 @@ if(!empty($_SESSION['id'])){
 		<div class="sep2"></div>
 	
 	<p><h2>Calendario de vacinas:</h2>
-	<h3>Dia 15 de junho de 2021<br>(Terça-feira)</h3>
-	<h3>Dia 18 de junho de 2021<br>(Sexta-feira)</h3>
+	<table class="tabbd">
+		<tr>
+			<td>Descrição:</td>
+			<td>Data:</td>
+		</tr>
+		<?php while($dado = $con->fetch_array()) { ?>
+		<tr>
+			<td><?php echo $dado["descricao"]; ?></td>
+			<td><?php echo date("d/m/y", strtotime($dado["data"])); ?></td>
+		</tr>
+		<?php } ?>
+	</table>
 	<div class="sep2"></div><br/>
-		<form>
+		<form method="POST" action="validavac.php">
 	<div class="data"><h3 style="text-align: left;">Selecione a data:</h3>
-	<input style="height:60px ; width:250px;" type="date" value="<?php echo date('Y-m-d');?>"/></div>
+	<input name="data" style="height:60px ; width:250px;" type="date" value="<?php echo date('Y-m-d');?>"/></div>
 
-	<div class="qvac" style="text-align: left;"><h3>Digite qual é a vacina:</h3><input type="text" style="height:60px ; width:400px; font-size:medium" placeholder="Exemplo: covid-19"></div>
+	<div class="qvac" style="text-align: left;"><h3>Digite qual é a vacina:</h3><input name="descricao" type="text" style="height:60px ; width:400px; font-size:medium" placeholder="Exemplo: covid-19"></div>
 	
 	<input type="submit"  value="Agendar vacina" class="agvac">
 	</form>

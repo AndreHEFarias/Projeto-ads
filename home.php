@@ -260,7 +260,7 @@ if(!empty($_SESSION['id'])){
 	<a href="https://conectesus-paciente.saude.gov.br/menu/agendar-consulta"><button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button></a>
 	<a href="postos.php"><button id="button-suc" style="text-decoration:none" class="button1" >Postos de vacinação</button></a>
 	<!--  -->
-
+	
 	
 	</div>
 	</div>j
