@@ -257,7 +257,7 @@ if(!empty($_SESSION['id'])){
 	<h3>Dia 18 de junho de 2021<br>(Sexta-feira)</h3><br>
 	<div class="sep2"></div><br/>
 	<a href="vacina.php"><button id="button-suc" style="text-decoration:none" class="button3" >Adicionar nova vacina</button></a>
-	<button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button>
+	<a href="https://conectesus-paciente.saude.gov.br/menu/agendar-consulta"><button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button></a>
 	<a href="postos.php"><button id="button-suc" style="text-decoration:none" class="button1" >Postos de vacinação</button></a>
 	<!--  -->
 

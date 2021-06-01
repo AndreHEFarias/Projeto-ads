@@ -259,7 +259,7 @@ if(!empty($_SESSION['id'])){
 			?>
 
 	<a href="vacina.php"><button id="button-suc" style="text-decoration:none" class="button3" >Adicionar nova vacina</button></a>
-	<button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button>
+	<a href="https://conectesus-paciente.saude.gov.br/menu/agendar-consulta"><button id="button-suc" style="text-decoration:none" class="button2" >Verificar vacinas disponiveis</button></a>
 	<!-- <input type="date"  class="data" value="<?php echo date('Y-m-d');?>"/> -->
         <br><br>
     <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d63702.70370179699!2d-38.569398235559824!3d-3.7184319971936883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spostos%20de%20sa%C3%BAde!5e0!3m2!1spt-BR!2sbr!4v1622511526865!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" loading="lazy"></iframe>
